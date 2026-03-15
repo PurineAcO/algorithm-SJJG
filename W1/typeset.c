@@ -8,13 +8,8 @@ int main(){
     scanf("%d",&mhplace);
     getchar();
     freopen("listin.txt", "r", stdin);
-    char word[114514]={};
-    char c;
-    int cnt=0;
-    while((c=getchar())!=EOF){
-        word[cnt]=c;
-        cnt++;
-    }
+    char word[114514]={};char c;int cnt=0;
+    while((c=getchar())!=EOF){word[cnt]=c;cnt++;}
     word[cnt]='\0';
     
     // printf("%d",mhplace);
@@ -25,16 +20,9 @@ int main(){
     int mhmap[10000]={};
     int hhmap[10000]={};
     for(int i=0;i<strlen(word);i++){
-        if(word[i]!=' ' && word[i]!='\t' && word[i]!=':' && word[i]!='\n'){
-            isword=1;
-            worddic[wordnum][wordcnt]=word[i];
-            wordcnt++;
-        }
+        if(word[i]!=' ' && word[i]!='\t' && word[i]!=':' && word[i]!='\n'){isword=1;worddic[wordnum][wordcnt]=word[i];wordcnt++;}
         else {
-            if(isword==1){
-            wordnum++;
-            wordcnt=0;
-            isword=0;}
+            if(isword==1){wordnum++;wordcnt=0;isword=0;}
             if(word[i]==':'){mhmap[hang]=wordnum;}
             if(word[i]=='\n'){hhmap[hang]=wordnum;hang++;}
         }
