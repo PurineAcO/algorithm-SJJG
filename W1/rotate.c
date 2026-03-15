@@ -9,9 +9,7 @@ int main(){
     char matrix[52][52]={};
 
     for(int i=1;i<=dim;i++){
-        for(int j=1;j<=dim;j++){
-            matrix[i][j]=getchar();
-        }
+        for(int j=1;j<=dim;j++){matrix[i][j]=getchar();}
         getchar();
     }
     

@@ -18,16 +18,13 @@ int main(){
     int num;
     scanf("%d",&num);
 
-    int primecnt=0;
-    int lastprime=0;
+    int primecnt=0;int lastprime=0;
     while(judgeprime(num)==0){
         for(int i=2;i<(int) sqrt(num)+1;i++){
             if(i>5 && (i%2==0 || i%3==0 || i%5==0)){continue;}
             if(judgeprime(i) && num%i==0){
                 if(i!=lastprime){primecnt++;primes[primecnt].prime=i;}
-                lastprime=i;
-                primes[primecnt].cnt++;
-                num/=i;
+                lastprime=i;primes[primecnt].cnt++;num/=i;
                 break;
             }
         }
