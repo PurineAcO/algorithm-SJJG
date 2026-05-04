@@ -10,22 +10,11 @@ int isfull(){return count==MAXRAB;}
 void enqueue(int queue[],int item){if(!isfull()){rear=(rear+1)%MAXRAB;queue[rear]=item;count++;}}
 int dequeue(int queue[]){int e=0;if(!isempty()){e=queue[front];front=(front+1)%MAXRAB;count--;}return e;}
 
-
 void bubblesort(rab info[],int num){
-    for(int i=1;i<=num-1;i++){
-        short ifswap = 0;
-        for(int j=1;j<=num-i;j++){
-            if(info[j].starttime > info[j+1].starttime){
-                rab temp = info[j];
-                info[j] = info[j+1];
-                info[j+1] = temp;
-                ifswap = 1;
-            }
-        }
-        if(!ifswap){break;}
-    }
-}
-
+    for(int i=1;i<=num-1;i++){short ifswap = 0;
+        for(int j=1;j<=num-i;j++){if(info[j].starttime > info[j+1].starttime){
+                rab temp = info[j];info[j] = info[j+1];info[j+1] = temp;ifswap = 1;}}
+        if(!ifswap){break;}}}
 
 int main(){
 
