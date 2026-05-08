@@ -6,6 +6,7 @@ void initstack(){top=-1;}
 int isempty(){return top==-1;}
 int isfull(){return top==(MAXSIZE-1);}
 char pop(char stack[]){if(!isempty()){return stack[top--];}return 'N';}
+void dispop(){top++;}
 void push(char stack[],char item){if(!isfull()){stack[++top]=item;}}
 
 int main(){
@@ -27,13 +28,13 @@ int main(){
                 printf("%c",token);
                 token=pop(stack);
             }
-            if(token!='N'){top++;}
+            if(token!='N'){dispop();}
             push(stack,things[i]);
         }
         else if(things[i]=='+' || things[i]=='-'){
             char token=pop(stack);
             while(token!='N'){
-                if(token == '('){top++;break;}
+                if(token == '('){dispop();break;}
                 while(token!='N' && token!='('){printf("%c",token);token=pop(stack);}
             }
 
